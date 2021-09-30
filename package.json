@@ -1,0 +1,45 @@
+{
+  "name": "vite-flow-fcl",
+  "version": "0.1.0",
+  "description": "@onflow/fcl built for Vite",
+  "module": "dist/fcl.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "release": "npx git-ensure -a && npx bumpp --commit --tag --push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samatechtw/vite-flow-fcl.git"
+  },
+  "keywords": [
+    "fetch",
+    "api"
+  ],
+  "author": "Sam Pullman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samatechtw/vite-flow-fcl/issues"
+  },
+  "homepage": "https://github.com/samatechtw/vite-flow-fcl#readme",
+  "dependencies": {
+    "@onflow/fcl": "^0.0.77",
+    "buffer": "^6.0.3",
+    "http-browserify": "^1.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-polyfill-node": "^0.7.0",
+    "rollup-plugin-sourcemaps": "^0.6.3"
+  }
+}

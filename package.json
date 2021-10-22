@@ -1,6 +1,6 @@
 {
   "name": "vite-flow-fcl",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "@onflow/fcl built for Vite",
   "module": "dist/fcl.esm.js",
   "files": [
@@ -24,8 +24,11 @@
     "url": "https://github.com/samatechtw/vite-flow-fcl/issues"
   },
   "homepage": "https://github.com/samatechtw/vite-flow-fcl#readme",
+  "peerDependencies": {
+    "@onflow/fcl": "0.0.78-alpha.5"
+  },
   "dependencies": {
-    "@onflow/fcl": "^0.0.77",
+    "@onflow/fcl": "0.0.78-alpha.5",
     "buffer": "^6.0.3",
     "http-browserify": "^1.7.0"
   },

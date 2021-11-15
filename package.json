@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samatechtw/@samatech/onflow-fcl-esm.git"
+    "url": "git+https://github.com/samatechtw/onflow-fcl-esm.git"
   },
   "keywords": [
     "fetch",
@@ -23,9 +23,9 @@
   "author": "Sam Pullman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/samatechtw/@samatech/onflow-fcl-esm/issues"
+    "url": "https://github.com/samatechtw/onflow-fcl-esm/issues"
   },
-  "homepage": "https://github.com/samatechtw/@samatech/onflow-fcl-esm#readme",
+  "homepage": "https://github.com/samatechtw/onflow-fcl-esm#readme",
   "peerDependencies": {
     "@onflow/fcl": "0.0.78-alpha.5"
   },

@@ -31,6 +31,8 @@ declare module '@samatech/onflow-fcl-esm' {
     signingFunction: (data: TransactionData) => TransactionSignature;
   }
 
+  export type FclAuthorization = AuthZ | ((acct: Account) => AuthZ);
+
   export interface Argument {
     value: any;
     xform: any; // FType

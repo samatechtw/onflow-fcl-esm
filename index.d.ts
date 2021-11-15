@@ -129,9 +129,9 @@ declare module '@samatech/onflow-fcl-esm' {
   function script(...args: any): Interaction;
   function transaction(...args: any): Interaction;
 
-  function payer(authz: AuthZ): (ix: Interaction) => Interaction;
-  function proposer(authz: AuthZ): (ix: Interaction) => Interaction;
-  function authorizations(ax: AuthZ[]): (ix: Interaction) => Interaction;
+  function payer(authz: FclAuthorization): (ix: Interaction) => Interaction;
+  function proposer(authz: FclAuthorization): (ix: Interaction) => Interaction;
+  function authorizations(ax: FclAuthorization[]): (ix: Interaction) => Interaction;
   function args(ax: Argument[]): (ix: Interaction) => Interaction;
   function arg(value: any, xform: any): Argument;
 

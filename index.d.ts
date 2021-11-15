@@ -56,7 +56,7 @@ declare module '@samatech/onflow-fcl-esm' {
     xform: any; // FType
   }
 
-  interface TransactionResult {
+  export interface TransactionResult {
     snapshot: () => any;
     subscribe: (callback?: any) => any;
     onceFinalized: (callback?: any) => any;
@@ -64,7 +64,7 @@ declare module '@samatech/onflow-fcl-esm' {
     onceSealed: (callback?: any) => any;
   }
 
-  interface Interaction {
+  export interface Interaction {
     tag: string;
     assigns: Record<string, unknown>;
     status: string;
@@ -112,6 +112,8 @@ declare module '@samatech/onflow-fcl-esm' {
     };
   }
 
+  export type Pipe = (ix: Interaction) => Interaction;
+
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface IJsonArray extends Array<AnyJson> {}
 
@@ -147,13 +149,13 @@ declare module '@samatech/onflow-fcl-esm' {
   function script(...args: any): Interaction;
   function transaction(...args: any): Interaction;
 
-  function payer(authz: FclAuthorization): (ix: Interaction) => Interaction;
-  function proposer(authz: FclAuthorization): (ix: Interaction) => Interaction;
-  function authorizations(ax: FclAuthorization[]): (ix: Interaction) => Interaction;
-  function args(ax: Argument[]): (ix: Interaction) => Interaction;
+  function payer(authz: FclAuthorization): Pipe;
+  function proposer(authz: FclAuthorization): Pipe;
+  function authorizations(ax: FclAuthorization[]): Pipe;
+  function args(ax: Argument[]): Pipe;
   function arg(value: any, xform: any): Argument;
 
-  function limit(computeLimit: number): (ix: Interaction) => Interaction;
+  function limit(computeLimit: number): Pipe;
 
   export {
     decode,

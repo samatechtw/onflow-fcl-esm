@@ -36,6 +36,21 @@ declare module '@samatech/onflow-fcl-esm' {
     | ((acct: Account) => AuthZ)
     | ((acct: Account) => Promise<AuthZ>);
 
+  export interface CadenceEvent {
+    type: string;
+    transactionId?: string;
+    transactionIndex?: number;
+    eventIndex?: number;
+    data?: Record<string, unknown>;
+  }
+
+  export interface CadenceResult {
+    events: CadenceEvent[];
+    status: number;
+    statusCode: number;
+    errorMessage: string;
+  }
+
   export interface Argument {
     value: any;
     xform: any; // FType

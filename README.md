@@ -1,10 +1,10 @@
-<h2 align='center'>vite-flow-fcl</h2>
+<h2 align='center'>@samatech/onflow-fcl-esm</h2>
 
-<p align='center'>@onflow/fcl built for Vite</p>
+<p align='center'>@onflow/fcl built for ES Module consumption. Includes some typings.</p>
 
 <p align='center'>
-<a href='https://www.npmjs.com/package/vite-flow-fcl'>
-  <img src='https://img.shields.io/npm/v/vite-flow-fcl?color=222&style=flat-square'>
+<a href='https://www.npmjs.com/package/@samatech/onflow-fcl-esm'>
+  <img src='https://img.shields.io/npm/v/@samatech/onflow-fcl-esm?color=222&style=flat-square'>
 </a>
 </p>
 
@@ -13,7 +13,7 @@
 ### Installation
 
 ```bash
-npm i -D vite-flow-fcl
+npm i -D @samatech/onflow-fcl-esm
 ```
 
 ### Usage

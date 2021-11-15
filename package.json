@@ -1,8 +1,10 @@
 {
-  "name": "vite-flow-fcl",
-  "version": "0.2.0",
-  "description": "@onflow/fcl built for Vite",
+  "name": "@samatech/onflow-fcl-esm",
+  "version": "0.3.0",
+  "description": "@onflow/fcl built for ES Module consumption",
   "module": "dist/fcl.esm.js",
+  "main": "dist/src/dist/fcl.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -12,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samatechtw/vite-flow-fcl.git"
+    "url": "git+https://github.com/samatechtw/@samatech/onflow-fcl-esm.git"
   },
   "keywords": [
     "fetch",
@@ -21,14 +23,14 @@
   "author": "Sam Pullman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/samatechtw/vite-flow-fcl/issues"
+    "url": "https://github.com/samatechtw/@samatech/onflow-fcl-esm/issues"
   },
-  "homepage": "https://github.com/samatechtw/vite-flow-fcl#readme",
+  "homepage": "https://github.com/samatechtw/@samatech/onflow-fcl-esm#readme",
   "peerDependencies": {
     "@onflow/fcl": "0.0.78-alpha.5"
   },
   "dependencies": {
-    "@onflow/fcl": "0.0.78-alpha.5",
+    "@onflow/fcl": "0.0.78-alpha.7",
     "buffer": "^6.0.3",
     "http-browserify": "^1.7.0"
   },

@@ -30,7 +30,10 @@ export default [
           '  protocol: parsedUrl.protocol, host: parsedUrl.hostname,',
       }),
       copy({
-        targets: [{ src: 'index.d.ts', dest: 'dist' }],
+        targets: [
+          { src: 'index.d.ts', dest: 'dist' },
+          { src: 'node_modules/@onflow/fcl/*', dest: 'dist/src' },
+        ],
       }),
     ],
   },

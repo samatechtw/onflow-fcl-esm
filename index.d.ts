@@ -145,6 +145,19 @@ declare module '@samatech/onflow-fcl-esm' {
 
   function tx(transactionId: any): TransactionResult;
 
+  function authenticate(): void;
+  function unauthenticate(): void;
+  function reauthenticate(): void;
+
+  function config(): FclConfig;
+
+  // Config
+  export interface FclConfig {
+    put: (key: string, value: unknown) => FclConfig;
+    get: <T extends unknown>(key: string, defaultValue: T) => T;
+    update: <T extends unknown>(key: string, updateFn: (oldValue: T) => T) => FclConfig;
+  }
+
   // SDK
   function script(...args: any): Interaction;
   function transaction(...args: any): Interaction;
@@ -158,6 +171,10 @@ declare module '@samatech/onflow-fcl-esm' {
   function limit(computeLimit: number): Pipe;
 
   export {
+    config,
+    authenticate,
+    unauthenticate,
+    reauthenticate,
     decode,
     send,
     latestBlock,

@@ -25,6 +25,7 @@ export default [
       builtins(),
       nodePolyfills({ include: null }),
       replace({
+        preventAssignment: true,
         delimiters: ['', ''],
         '  host: parsedUrl.hostname,':
           '  protocol: parsedUrl.protocol, host: parsedUrl.hostname,',

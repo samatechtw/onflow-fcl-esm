@@ -1,5 +1,90 @@
+declare module '@onflow/config' {
+  import { FlowConfig } from './config.d';
+
+  export const config: FlowConfig;
+}
+
+declare module '@onflow/fcl-config' {
+  import { flowConfig } from '@onflow/fcl-config';
+
+  export { flowConfig };
+}
+
+declare module '*.cdc' {
+  const content: string;
+  export default content;
+}
+
+declare module '@onflow/types' {
+  import {
+    Bool,
+    Character,
+    String,
+    Argument,
+    Address,
+    Optional,
+    Fix64,
+    UFix64,
+    Int,
+    Int8,
+    Int16,
+    Int32,
+    Int64,
+    Int128,
+    Int156,
+    UInt,
+    UInt8,
+    UInt16,
+    UInt32,
+    UInt64,
+    UInt128,
+    UInt156,
+    Word8,
+    Word16,
+    Word32,
+    Word64,
+    Array,
+    Dictionary,
+    Path,
+  } from '@onflow/types';
+
+  export {
+    Bool,
+    Character,
+    String,
+    Argument,
+    Address,
+    Optional,
+    Fix64,
+    UFix64,
+    Int,
+    Int8,
+    Int16,
+    Int32,
+    Int64,
+    Int128,
+    Int156,
+    UInt,
+    UInt8,
+    UInt16,
+    UInt32,
+    UInt64,
+    UInt128,
+    UInt156,
+    Word8,
+    Word16,
+    Word32,
+    Word64,
+    Array,
+    Dictionary,
+    Path,
+  };
+}
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare module '@samatech/onflow-fcl-esm' {
+  import { FlowConfig } from './config.d';
+
   type AnyJson = boolean | number | string | null | IJsonArray | IJsonObject;
 
   interface IJsonObject {
@@ -35,6 +120,28 @@ declare module '@samatech/onflow-fcl-esm' {
     | AuthZ
     | ((acct: Account) => AuthZ)
     | ((acct: Account) => Promise<AuthZ>);
+
+  export interface Service {
+    authn?: string;
+    f_type: string;
+    f_vsn: string;
+    id?: string;
+    identity?: Record<string, string>;
+    provider?: Record<string, string>;
+    scoped?: Record<string, string>;
+    type: string;
+    uid: string;
+  }
+
+  export interface UserSnapshot {
+    addr: string | null;
+    cid: string | null;
+    expiresAt: number | null;
+    f_type: string;
+    f_vsn: string;
+    loggedIn: boolean | null;
+    services?: Service[];
+  }
 
   export interface CadenceEvent {
     type: string;
@@ -117,76 +224,73 @@ declare module '@samatech/onflow-fcl-esm' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface IJsonArray extends Array<AnyJson> {}
 
-  type Decoder = (dictionary, decoders, stack) => Record<any, any>;
-  type DecoderGroup = Record<string, Decoder>;
-  type Response = IJsonObject;
+  export type Decoder = (dictionary, decoders, stack) => Record<any, any>;
+  export type DecoderGroup = Record<string, Decoder>;
+  export type Response = IJsonObject;
 
-  interface BlockObject {
+  export interface CollectionGuaranteeObject {
+    collectionId: string;
+    signatures: TransactionSignature[];
+  }
+
+  export interface BlockObject {
     id: string;
     parentId: string;
     height: number;
     timestamp: any;
-    collectionGuarantees: any;
+    collectionGuarantees: CollectionGuaranteeObject;
     blockSeals: any;
-    signatures: Uint8Array;
+    signatures: TransactionSignature[];
   }
 
-  function send(args: any, opts?: any): Promise<Response>;
+  export function send(args: any, opts?: any): Promise<Response>;
 
-  function decode(
+  export function decode(
     decodeInstructions: any,
     customDecoders?: DecoderGroup,
     stack?: Array<any>,
   ): Promise<any>;
 
-  function latestBlock(isSealed: boolean): Promise<BlockObject>;
+  export function latestBlock(isSealed: boolean): Promise<BlockObject>;
 
-  function sansPrefix(address: string): string;
+  export function sansPrefix(address: string): string;
 
-  function tx(transactionId: any): TransactionResult;
+  export function tx(transactionId: any): TransactionResult;
 
-  function authenticate(): void;
-  function unauthenticate(): void;
-  function reauthenticate(): void;
+  export function authenticate(): Promise<UserSnapshot>;
+  export function unauthenticate(): void;
+  export function reauthenticate(): Promise<UserSnapshot>;
+  export function authorization(account: Account): Promise<FclAuthorization>;
+  export function verifyUserSignatures(
+    msg: string,
+    compSigs: [TransactionSignature],
+  ): Promise<[unknown]>;
 
-  function config(): FclConfig;
+  type SubscribeCallback = (user: UserSnapshot) => void;
 
-  // Config
-  export interface FclConfig {
-    put: (key: string, value: unknown) => FclConfig;
-    get: <T extends unknown>(key: string, defaultValue: T) => T;
-    update: <T extends unknown>(key: string, updateFn: (oldValue: T) => T) => FclConfig;
+  export interface CurrentUser {
+    authenticate: typeof authenticate;
+    unauthenticate: typeof unauthenticate;
+    authorization: typeof authorization;
+    signUserMessage: (msg: string) => Promise<[TransactionSignature]>;
+    subscribe: (callback: SubscribeCallback) => void;
+    snapshot: Promise<UserSnapshot>;
+    resolveArgument: () => Promise<Argument>;
   }
 
+  export function currentUser(): CurrentUser;
+
+  export function config(): FlowConfig;
+
   // SDK
-  function script(...args: any): Interaction;
-  function transaction(...args: any): Interaction;
+  export function script(code: string): Interaction;
+  export function transaction(...args: any): Interaction;
 
-  function payer(authz: FclAuthorization): Pipe;
-  function proposer(authz: FclAuthorization): Pipe;
-  function authorizations(ax: FclAuthorization[]): Pipe;
-  function args(ax: Argument[]): Pipe;
-  function arg(value: any, xform: any): Argument;
+  export function payer(authz: FclAuthorization): Pipe;
+  export function proposer(authz: FclAuthorization): Pipe;
+  export function authorizations(ax: FclAuthorization[]): Pipe;
+  export function args(ax: Argument[]): Pipe;
+  export function arg(value: any, xform: any): Argument;
 
-  function limit(computeLimit: number): Pipe;
-
-  export {
-    config,
-    authenticate,
-    unauthenticate,
-    reauthenticate,
-    decode,
-    send,
-    latestBlock,
-    sansPrefix,
-    script,
-    transaction,
-    authorizations,
-    args,
-    arg,
-    payer,
-    proposer,
-    limit,
-    tx,
-  };
+  export function limit(computeLimit: number): Pipe;
 }

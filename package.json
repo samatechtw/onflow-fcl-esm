@@ -26,16 +26,14 @@
     "url": "https://github.com/samatechtw/onflow-fcl-esm/issues"
   },
   "homepage": "https://github.com/samatechtw/onflow-fcl-esm#readme",
-  "peerDependencies": {
-    "@onflow/fcl": "0.0.78-alpha.5"
-  },
   "dependencies": {
-    "@onflow/fcl": "0.0.78-alpha.7",
+    "@onflow/fcl": "0.0.78-alpha.8",
     "buffer": "^6.0.3",
     "http-browserify": "^1.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
+    "@onflow/config": "^0.0.2",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",

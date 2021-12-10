@@ -283,6 +283,9 @@ declare module '@samatech/onflow-fcl-esm' {
   export function config(): FlowConfig;
 
   // SDK
+  export function getBlock(isSealed?: boolean): Pipe;
+
+  export function build(fns?: Pipe[]): Pipe;
   export function script(code: string): Interaction;
   export function transaction(...args: any): Interaction;
 
@@ -293,4 +296,10 @@ declare module '@samatech/onflow-fcl-esm' {
   export function arg(value: any, xform: any): Argument;
 
   export function limit(computeLimit: number): Pipe;
+
+  export function getEventsAtBlockHeightRange(
+    eventName: string,
+    fromBlockHeight: number,
+    toBlockHeight: number,
+  ): Interaction;
 }

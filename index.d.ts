@@ -171,6 +171,22 @@ declare module '@samatech/onflow-fcl-esm' {
     onceSealed: (callback?: any) => any;
   }
 
+  export enum TransactionStatus {
+    Unknown = 0,
+    Pending,
+    Finalized,
+    Executed,
+    Sealed,
+    Expired,
+  }
+
+  export interface TransactionData {
+    events: CadenceEvent[];
+    status: TransactionStatus;
+    errorMessage: string;
+    statusCode: number;
+  }
+
   export interface Interaction {
     tag: string;
     assigns: Record<string, unknown>;
@@ -284,6 +300,7 @@ declare module '@samatech/onflow-fcl-esm' {
 
   // SDK
   export function getBlock(isSealed?: boolean): Pipe;
+  export function getTransaction(transactionId: string): Pipe;
 
   export function build(fns?: Pipe[]): Pipe;
   export function script(code: string): Interaction;

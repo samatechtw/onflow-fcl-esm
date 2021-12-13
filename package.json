@@ -1,6 +1,6 @@
 {
   "name": "@samatech/onflow-fcl-esm",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "@onflow/fcl built for ES Module consumption",
   "module": "dist/fcl.esm.js",
   "main": "dist/src/dist/fcl.js",

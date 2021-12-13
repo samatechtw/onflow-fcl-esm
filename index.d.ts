@@ -156,6 +156,9 @@ declare module '@samatech/onflow-fcl-esm' {
     status: number;
     statusCode: number;
     errorMessage: string;
+    // TODO -- require once implemented in FCL
+    // https://github.com/onflow/fcl-js/issues/926
+    transactionId?: string;
   }
 
   export interface Argument {

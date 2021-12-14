@@ -304,6 +304,7 @@ declare module '@samatech/onflow-fcl-esm' {
   // SDK
   export function getBlock(isSealed?: boolean): Pipe;
   export function getTransaction(transactionId: string): Pipe;
+  export function getEventsAtBlockIds(eventType: string, blockIds: string[]): Pipe;
 
   export function build(fns?: Pipe[]): Pipe;
   export function script(code: string): Interaction;

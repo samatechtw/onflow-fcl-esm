@@ -97,7 +97,7 @@ declare module '@samatech/onflow-fcl-esm' {
     signature: string;
   }
 
-  export interface TransactionData {
+  export interface SigningData {
     message: string;
   }
 
@@ -113,7 +113,7 @@ declare module '@samatech/onflow-fcl-esm' {
     tempId: string;
     addr: string;
     keyId: number;
-    signingFunction: (data: TransactionData) => TransactionSignature;
+    signingFunction: (data: SigningData) => TransactionSignature;
   }
 
   export type FclAuthorization =

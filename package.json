@@ -44,5 +44,6 @@
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-polyfill-node": "^0.7.0",
     "rollup-plugin-sourcemaps": "^0.6.3"
-  }
+  },
+  "version": "0.4.8"
 }

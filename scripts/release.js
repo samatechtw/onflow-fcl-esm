@@ -50,8 +50,9 @@ result = spawnSync('git', ['branch', '--show-current'], {
 const branch = result.stdout.trim();
 if (branch !== 'main') errorExit('Error - must be on `main` branch');
 
-if (newVersion === prevVersion)
-  errorExit('Current version cannot match previous version');
+if (newVersion === prevVersion) errorExit('New version cannot match previous version');
+
+if (!/\d+\.\d+\.\d+/.test(newVersion)) errorExit('New version format must be x.x.x');
 
 console.log('...building');
 

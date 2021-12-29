@@ -69,13 +69,13 @@ try {
 
 console.log('...committing');
 
-runOrExit('git', ['commit', '-am', `"release: v${newVersion}"`], 'Release commit failed');
+runOrExit('git', ['commit', '-am', `release: v${newVersion}`], 'Release commit failed');
 
 console.log('...tagging');
 
 runOrExit(
   'git',
-  ['tag', '-a', `v${newVersion}`, '-m', `"Version ${newVersion}"`],
+  ['tag', '-a', `v${newVersion}`, '-m', `Version ${newVersion}`],
   'Release tag failed',
 );
 

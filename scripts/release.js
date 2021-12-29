@@ -33,7 +33,7 @@ const runOrExit = (cmd, args, message) => {
 
 if (!pkg) errorExit('Unable to resolve package.json');
 
-const result = spawnSync('npm', ['show', pkg.name, 'version'], {
+let result = spawnSync('npm', ['show', pkg.name, 'version'], {
   stdio: 'pipe',
   encoding: 'utf-8',
 });
@@ -41,6 +41,14 @@ const prevVersion = result.stdout.trim();
 const newVersion = process.argv[2];
 
 console.log(`Previous version: ${prevVersion}`);
+
+console.log('...verifying branch');
+result = spawnSync('git', ['branch', '--show-current'], {
+  stdio: 'pipe',
+  encoding: 'utf-8',
+});
+const branch = result.stdout.trim();
+if (branch !== 'main') errorExit('Error - must be on `main` branch');
 
 if (newVersion === prevVersion)
   errorExit('Current version cannot match previous version');
@@ -77,3 +85,5 @@ runOrExit('git', ['push'], 'Release push failed');
 console.log('...pushing tags');
 
 runOrExit('git', ['push', '--tags'], 'Release tag push failed');
+
+console.log(`Released version ${newVersion}\n`);

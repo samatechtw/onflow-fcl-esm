@@ -85,9 +85,9 @@ declare module '@onflow/types' {
 declare module '@samatech/onflow-fcl-esm' {
   import { FlowConfig } from './config.d';
 
-  type AnyJson = boolean | number | string | null | IJsonArray | IJsonObject;
+  export type AnyJson = boolean | number | string | null | IJsonArray | IJsonObject;
 
-  interface IJsonObject {
+  export interface IJsonObject {
     [key: string]: AnyJson;
   }
 

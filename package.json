@@ -9,16 +9,17 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && rollup -c rollup.config.js",
-    "release": "npx git-ensure -a && npx bumpp --commit --tag --push"
+    "build": "rimraf dist && rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samatechtw/onflow-fcl-esm.git"
   },
   "keywords": [
-    "fetch",
-    "api"
+    "onflow",
+    "fcl",
+    "cadence",
+    "esm"
   ],
   "author": "Sam Pullman",
   "license": "MIT",

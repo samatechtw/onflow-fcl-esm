@@ -175,6 +175,8 @@ declare module '@samatech/onflow-fcl-esm' {
     onceSealed: (callback?: any) => any;
   }
 
+  export { TransactionStatus };
+
   export interface TransactionData {
     events: CadenceEvent[];
     status: TransactionStatus;

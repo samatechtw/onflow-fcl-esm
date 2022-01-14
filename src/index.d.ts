@@ -83,8 +83,10 @@ declare module '@onflow/types' {
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare module '@samatech/onflow-fcl-esm' {
-  import { FlowConfig } from './config.d';
-  import { TransactionStatus } from './src/enums';
+  import { FlowConfig } from 'config.d';
+  import { TransactionStatus } from 'enums';
+
+  export { TransactionStatus };
 
   export type AnyJson = boolean | number | string | null | IJsonArray | IJsonObject;
 
@@ -174,8 +176,6 @@ declare module '@samatech/onflow-fcl-esm' {
     onceExecuted: (callback?: any) => any;
     onceSealed: (callback?: any) => any;
   }
-
-  export { TransactionStatus };
 
   export interface TransactionData {
     events: CadenceEvent[];

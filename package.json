@@ -2,7 +2,7 @@
   "name": "@samatech/onflow-fcl-esm",
   "description": "@onflow/fcl built for ES Module consumption",
   "module": "dist/fcl.esm.js",
-  "main": "dist/src/dist/fcl.js",
+  "main": "dist/fcl.cjs.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"

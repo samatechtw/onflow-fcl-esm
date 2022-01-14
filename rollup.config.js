@@ -31,11 +31,24 @@ export default [
           '  protocol: parsedUrl.protocol, host: parsedUrl.hostname,',
       }),
       copy({
-        targets: [
-          { src: 'index.d.ts', dest: 'dist' },
-          { src: 'node_modules/@onflow/fcl/*', dest: 'dist/src' },
-        ],
+        targets: [{ src: 'index.d.ts', dest: 'dist' }],
       }),
+    ],
+  },
+  {
+    input: 'out-tsc/index-cjs.js',
+    output: [
+      {
+        exports: 'named',
+        file: pkg.main,
+        sourcemap: true,
+        format: 'cjs',
+      },
+    ],
+    plugins: [
+      resolve({ browser: true, preferBuiltins: false }),
+      commonjs(),
+      sourceMaps(),
     ],
   },
 ];

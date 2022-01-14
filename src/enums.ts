@@ -1,7 +1,7 @@
 // File for sharing enum type with declaration file and index.ts exports
 // This may be generalized in the future for exporting other implementation objects
 
-export const enum TransactionStatus {
+export enum TransactionStatus {
   Unknown = 0,
   Pending,
   Finalized,

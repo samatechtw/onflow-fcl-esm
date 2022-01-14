@@ -43,8 +43,6 @@ export default [
       },
     ],
     plugins: [
-      resolve({ browser: true, preferBuiltins: false }),
-      commonjs(),
       sourceMaps(),
       copy({
         targets: [{ src: 'src/index.d.ts', dest: 'dist' }],

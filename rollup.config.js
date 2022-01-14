@@ -30,9 +30,6 @@ export default [
         '  host: parsedUrl.hostname,':
           '  protocol: parsedUrl.protocol, host: parsedUrl.hostname,',
       }),
-      copy({
-        targets: [{ src: 'index.d.ts', dest: 'dist' }],
-      }),
     ],
   },
   {
@@ -49,6 +46,9 @@ export default [
       resolve({ browser: true, preferBuiltins: false }),
       commonjs(),
       sourceMaps(),
+      copy({
+        targets: [{ src: 'src/index.d.ts', dest: 'dist' }],
+      }),
     ],
   },
 ];

@@ -10,7 +10,7 @@ const pkg = require('./package.json');
 
 export default [
   {
-    input: 'index.js',
+    input: 'out-tsc/index.js',
     output: [
       {
         exports: 'named',

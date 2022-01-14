@@ -84,6 +84,7 @@ declare module '@onflow/types' {
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare module '@samatech/onflow-fcl-esm' {
   import { FlowConfig } from './config.d';
+  import { TransactionStatus } from './src/enums';
 
   export type AnyJson = boolean | number | string | null | IJsonArray | IJsonObject;
 
@@ -172,15 +173,6 @@ declare module '@samatech/onflow-fcl-esm' {
     onceFinalized: (callback?: any) => any;
     onceExecuted: (callback?: any) => any;
     onceSealed: (callback?: any) => any;
-  }
-
-  export enum TransactionStatus {
-    Unknown = 0,
-    Pending,
-    Finalized,
-    Executed,
-    Sealed,
-    Expired,
   }
 
   export interface TransactionData {

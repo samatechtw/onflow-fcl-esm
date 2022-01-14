@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "target": "ES6",
+    "baseUrl": "./",
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "out-tsc"
+  },
+  "include": ["./**/*.ts"]
+}

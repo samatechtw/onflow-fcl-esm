@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && rollup -c rollup.config.js"
+    "build": "rimraf dist && tsc && rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,8 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-polyfill-node": "^0.7.0",
-    "rollup-plugin-sourcemaps": "^0.6.3"
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "typescript": "^4.5.4"
   },
   "version": "0.4.9"
 }

@@ -147,10 +147,13 @@ declare module '@samatech/onflow-fcl-esm' {
   }
 
   export interface CadenceEvent {
+    blockId: string;
+    blockHeight: number;
+    blockTimestamp: string;
     type: string;
-    transactionId?: string;
-    transactionIndex?: number;
-    eventIndex?: number;
+    transactionId: string;
+    transactionIndex: number;
+    eventIndex: number;
     data?: Record<string, unknown>;
   }
 
